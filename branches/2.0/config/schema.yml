@@ -1,0 +1,21 @@
+propel:
+  media_type:
+    _attributes:    { phpName: MediaType }
+    id:
+    title:          varchar(255)
+    slug:           varchar(255)
+    sort_order:     integer
+    _behaviors:
+      wfSluggable:  {}
+  media_file:
+    _attributes:    { phpName: MediaFile }
+    id:
+    media_type_id:  
+    title:          varchar(255)
+    slug:           varchar(255)
+    filename:       varchar(255)
+    preview_filename: varchar(255)
+    active:         { type: boolean, default: 1 }
+    sort_order:     integer
+    _behaviors:
+      wfSluggable:  {}

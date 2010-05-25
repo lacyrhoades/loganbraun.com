@@ -1,0 +1,10 @@
+all:
+  wf_core:
+    analytics_tracker:  UA-89373-10
+  
+  smtp_host:         mail.braunmediapro.com
+  smtp_user:         mailman@braunmediapro.com
+  smtp_pass:         polikcol
+  
+  sfMediaLibrary:
+    upload_dir:      uploads/custom

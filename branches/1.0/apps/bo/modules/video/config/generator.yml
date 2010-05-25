@@ -1,0 +1,24 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      Video
+    theme:            default
+    
+    fields:
+      filename:       { type: admin_input_file_tag, upload_dir: video, params: include_link=video include_remove=true not_image=true }
+      preview:        { type: admin_input_file_tag, upload_dir: preview, params: include_link=preview include_remove=true }
+      front_page:     { help: Checking this box will cause this video to be shown on the front page. The actual video on the front page will be a random selection from all videos marked with front page }
+    
+    list:
+      title:          Videos
+      display:        [ =name, _filename, _preview, include_on_sample ]
+      object_actions:
+        _edit:        ~
+        _delete:      ~
+    
+    edit:
+      title:          Edit "%%name%%" Video
+      fields:
+        filename:     { name: Video file }
+        preview:      { name: Preview Image, help: An image that will be displayed as a preview for this video }
+        : { help: Check this box to cause this video to appear on the sample page }

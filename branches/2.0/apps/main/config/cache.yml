@@ -1,0 +1,8 @@
+default:
+  enabled:     off
+  with_layout: false
+  lifetime:    86400
+_ie6:
+  enabled:     on
+_nav:
+  enabled:     on

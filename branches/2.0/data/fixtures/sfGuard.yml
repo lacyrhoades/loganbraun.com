@@ -1,0 +1,29 @@
+sfGuardUser:
+  admin:
+    username:       bluedoor
+    password:       briphapr
+    is_super_admin: true
+  client:
+    username:       braunmed
+    password:       polikcol
+
+sfGuardPermission:
+  admin:
+    name:           admin
+    description:    Administrator permission
+
+sfGuardGroup:
+  admin:
+    name:           admin
+    description:    Administrator group
+
+sfGuardGroupPermission:
+  admin:
+    group_id:       admin
+    permission_id:  admin
+
+sfGuardUserGroup:
+  admin:
+    group_id:       admin
+    user_id:        client
+

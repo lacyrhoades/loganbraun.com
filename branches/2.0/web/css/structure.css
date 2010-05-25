@@ -1,0 +1,67 @@
+body, html {
+	height: 100%;
+}
+body {
+	font-family: Arial, sans-serif;
+}
+#wrapper {
+	width: 1000px;
+	margin: auto;
+	height: 100%;
+}
+#header {
+	margin-top: 30px;
+	height: 112px;
+	background: url(../images/layout/logo.gif) 15px 0 no-repeat;
+	padding-left: 750px;
+	font-size: 20px;
+}
+#left {
+	width: 271px;
+	background: url(../images/layout/left-ink.gif) 49px 0 no-repeat;
+	float: left;
+	padding: 0 8px 0 8px;
+	margin-right: 17px;
+	min-height: 400px;
+	height: auto !important;
+	height: 400px;
+}
+#right {
+	width: 673px;
+	width: 603px;
+	padding: 0 35px 0 35px;
+	float: left;
+	background: url(../images/layout/right.gif) top left repeat-y;
+	min-height: 400px;
+	height: auto !important;
+	height: 400px;
+}
+/* START NAV */
+#left #nav a {
+	height: 58px;
+	display: block;
+	background-position: top left;
+	background-repeat: no-repeat;
+	margin-bottom: 17px;
+}
+#left #nav a:hover {
+	background-position: bottom left;
+}
+#left #nav a#sample-work {
+	background-image: url(../images/layout/nav/sample-work.jpg);
+}
+#left #nav a#contact {
+	background-image: url(../images/layout/nav/contact.jpg);
+}
+#left #nav a#about {
+	background-image: url(../images/layout/nav/about.jpg);
+}
+#left a#linked-in {
+	display: block;
+	width: 160px;
+	height: 33px;
+	background: url(../images/layout/linked-in.png) top left no-repeat;
+	margin: auto;
+	margin-top: 20px;
+}
+/* END NAV */

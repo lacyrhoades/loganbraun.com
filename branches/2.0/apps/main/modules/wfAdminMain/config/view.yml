@@ -1,0 +1,4 @@
+default:
+  stylesheets:    [ /wfAdminPlugin/css/wfAdminMain.css ]
+  components:
+    nav:          [ wfAdminMain, left ]

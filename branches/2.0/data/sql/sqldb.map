@@ -1,0 +1,7 @@
+# Sqlfile -> Database map
+lib.model.schema.sql=propel
+plugins.sfErrorLoggerPlugin.lib.model.schema.sql=propel
+plugins.sfGuardPlugin.lib.model.schema.sql=propel
+plugins.wfAdminPlugin.lib.model.schema.sql=propel
+plugins.wfCorePlugin.lib.model.schema.sql=propel
+plugins.wfPagePlugin.lib.model.schema.sql=propel

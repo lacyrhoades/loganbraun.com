@@ -1,0 +1,1 @@
+<a href="/uploads/video/<?= $video->getFilename(); ?>" target="_blank"><?= $video->getFilename(); ?></a>

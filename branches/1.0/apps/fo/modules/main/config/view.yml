@@ -1,0 +1,4 @@
+default:
+  components:
+    body:        [slot, home_body]
+    content:     [slot, home_content]

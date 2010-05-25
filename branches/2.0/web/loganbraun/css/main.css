@@ -1,0 +1,80 @@
+body {
+  background: url(../images/tiled.gif) top left repeat;
+  font-family: Apple LiGothic Medium, Arial, sans-serif;
+}
+#body-wrap {
+  height: 816px;
+  background: url(../images/body.jpg) top left repeat-x;
+}
+#wrapper {
+  padding-top: 220px;
+}
+#main {
+  width: 518px;
+  width: 510px;
+  padding: 0 0 0 8px;
+  height: 256px;
+  height: 111px;
+  padding-top: 145px;
+  background: url(../images/main.png) top left no-repeat;
+  margin: auto;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 22px;
+  text-align: center;
+}
+.button-small {
+  display: block;
+  text-align: center;
+  float: left;
+  height: 97px;
+  height: 77px;
+  padding-top: 20px;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.button-small:hover {
+  background-position: top left;
+}
+#linkedin {
+  width: 197px;
+  background-image: url(../images/glow-linkedin.png);
+  margin-left: -30px;
+}
+#braunmediapro {
+  height: 97px;
+  padding-top: 0px;
+  line-height: 35px;
+  width: 227px;
+  background-image: url(../images/glow-bmp.png);
+  margin-left: -35px;
+}
+#facebook {
+  width: 227px;
+  background-image: url(../images/glow-facebook.png);
+  margin-left: -50px;
+  margin-right: -30px;
+}
+
+a.button {
+  width: 521px;
+  height: 61px;
+  height: 43px;
+  padding-top: 18px;
+  background: url(../images/button.png) top left no-repeat;
+  display: block;
+  margin: auto;
+  position: relative;
+}
+a.button:hover {
+  background-position: bottom left;
+}
+#contemporary {
+  
+}
+#athletic {
+  margin-top: 10px;
+}

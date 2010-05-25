@@ -1,0 +1,22 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Braun Media Productions
+    robots:       index, follow
+    description:  Braun Media Productions
+    keywords:     Mediua, Productions
+    language:     en
+
+  stylesheets:    [main]
+
+  javascripts:    [ ]
+
+  has_layout:     on
+  layout:         layout
+
+  components:
+    nav:          [slot, default_left_nav]
+    body:         [slot, default_body]
+    content:      [slot, default_content]

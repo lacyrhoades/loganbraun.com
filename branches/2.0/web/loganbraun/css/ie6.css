@@ -1,0 +1,24 @@
+#main {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='/braun/braunmediapro.com_new/web/loganbraun/images/main.png');
+	background: none !important;
+}
+#linkedin {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='/braun/braunmediapro.com_new/web/loganbraun/images/glow-linkedin.png');
+	background: none !important;
+	cursor: pointer;
+}
+#braunmediapro {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='/braun/braunmediapro.com_new/web/loganbraun/images/glow-bmp.png');
+	background: none !important;
+	cursor: pointer;
+}
+#facebook {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='/braun/braunmediapro.com_new/web/loganbraun/images/glow-facebook.png');
+	background: none !important;
+	cursor: pointer;
+}
+.button {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='/braun/braunmediapro.com_new/web/loganbraun/images/button.png');
+	background: none !important;
+	cursor: pointer;
+}

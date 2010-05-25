@@ -1,0 +1,19 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Braun Media Productions - Digital Media Production
+    robots:       index, follow
+    description:  Braun Media Productions is a digital media company started by digital media editor Logan Braun
+    keywords:     Media, Productions, Logan Braun, Braun Media, Digital Media Editor
+    language:     en
+
+  stylesheets:    [user_styles, /wfCorePlugin/css/thickbox, /wfCorePlugin/css/framework, /wfCorePlugin/css/common, structure, main ]
+  javascripts:    [/wfCorePlugin/js/thickbox]
+
+  has_layout:     on
+  layout:         layout
+
+  components:
+    nav:          [ main, nav ]

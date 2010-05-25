@@ -1,0 +1,150 @@
+html {
+    height: 100%;
+}
+body {
+   margin: 0;
+   font-family: sans-serif, georgia, Arial;
+   background: url(/images/layout/bg_tiled.jpg) center center repeat;
+   color: #fff;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+a:visited {
+    color: #fff;
+}
+a:hover {
+    text-decoration: underline;
+}
+#wrapper {
+    width: 712px; /* Original width */
+    margin: auto;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+    background: #000;
+    padding-top: 20px;
+}
+#header {
+    background: url(/images/layout/header.gif) top left no-repeat;
+    height: 95px;
+}
+#header a, #footer a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+#header a:hover {
+    text-decoration: none;
+}
+#nav {
+    font-size: 12px;
+    margin-top: 20px;
+}
+#nav div.nav_item {
+    float: left;
+    text-align: center;
+    padding: 0 0px 0px 0px;
+    border-right: 1px solid #fff;
+    height: 32px;
+}
+#nav div.filler {
+    float: left;
+    width: 35px;
+    border-bottom: 1px solid #fff;
+    height: 32px;
+}
+#nav a {
+    color: #fff;
+    font-weight: normal;
+    display: block;
+    width: 100%;
+    height: 30px;
+    background: #000;
+    padding-bottom: 2px;
+    overflow: hidden;
+    border-bottom: 1px solid #fff;
+}
+#nav a.selected {
+    border-bottom: none;
+}
+#nav a:hover {
+    background: #111;
+    text-decoration: none;
+}
+.clear {
+    clear: both;
+}
+#content {
+    margin: 10px 15px 0 15px;
+    background: url(/images/layout/content_bg.jpg) bottom center no-repeat;
+    padding-bottom: 480px;
+}
+#footer {
+    height: 27px;
+    margin-top: 30px;
+    background: url(/images/layout/footer.gif) top left no-repeat;
+}
+
+
+/* non-layout items */
+#index_div {
+    height: 440px;
+    background: url(/images/index_bg.jpg) top center no-repeat;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
+.left {
+    text-align: left;
+}
+#dig_repo {
+    background: url(/images/digital_reproduction_bg.gif) top center no-repeat;
+    height: 378px;
+}
+.pricing {
+    margin-left: 30px;
+}
+.pricing h4 {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+.pricing ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.pricing li {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.pricing li ul {
+    padding-left: 10px;
+}
+.pricing li li {
+    margin-bottom: 0;
+}
+.media_type {
+    margin-bottom: 50px;
+}
+.media_type h1, .media_type h3 {
+    margin-bottom: 0;
+}
+.contact_stuff {
+    margin-bottom: 20px;
+}
+.contact_stuff div {
+    width: 200px;
+    float: left;
+}
+.floatl {
+    float: left;
+}
+.floatr {
+    float: right;
+}

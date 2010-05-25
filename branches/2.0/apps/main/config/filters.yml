@@ -1,0 +1,16 @@
+rendering: ~
+security:
+  class: sfGuardBasicSecurityFilter
+
+# insert your own filters here
+wfMetaFilter:
+  class:   wfMetaFilter
+  
+cache:     ~
+common:    ~
+wfCombineFilter:
+  class:   wfCombineFilter
+  param:
+    javascripts:    true
+    stylesheets:    true
+execution: ~

@@ -1,0 +1,21 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      Page
+    theme:            default
+    
+    fields:
+      body:           { params: size=80x20 }
+      special_handling: { name: Special Handling, help: "This value is used internally. If there is a value in this box, don't bother filling in the body field above as the content of this page is created by an internal custom engine." , params: readonly=true }
+      nav_title:      { name: Navigation Name, help: "This should be the set to the same as title, except for <br/> tags where the line breaks should be for the navigation text"  }
+    
+    list:
+      title:          Pages
+      display:        [ =title, sort_order ]
+      object_actions:
+        _edit:        ~
+        _delete:      ~
+      sort:            [sort_order, asc]
+    
+    edit:
+      title:          Edit Page

@@ -1,0 +1,17 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      MediaType
+    theme:            waffles
+    
+    fields:
+      slug:           { credentials: superadmin }
+      sort_order:     { credentials: superadmin }
+    
+    list:
+      title:          Media Types
+      display:        [ =title, sort_order]
+      sortable:       true
+      object_actions:
+        _edit:        ~
+        _delete:      ~

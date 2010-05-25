@@ -1,0 +1,5 @@
+wfConstant:
+  contact_page_recipients:
+    title:    Contact Page Email Recipients
+    slug:     contact_page_recipients
+    value:    weaverryan@gmail.com

@@ -1,0 +1,37 @@
+Options +FollowSymLinks +ExecCGI
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/js application/x-javascript
+
+FileETag none
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType image/gif A2592000
+  ExpiresByType image/png A2592000
+  ExpiresByType image/jpg A2592000
+  ExpiresByType image/jpeg A2592000
+  ExpiresByType text/css A2592000
+  ExpiresByType text/js A2592000
+  ExpiresByType application/x-javascript A2592000
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # uncomment the following line, if you are having trouble
+  # getting no_script_name to work
+  #RewriteBase /
+
+  # we skip all files with .something
+  #RewriteCond %{REQUEST_URI} \..+$
+  #RewriteCond %{REQUEST_URI} !\.html$
+  #RewriteRule .* - [L]
+
+  # we check if the .html version is here (caching)
+  RewriteRule ^$ index.html [QSA]
+  RewriteRule ^([^.]+)$ $1.html [QSA]
+  RewriteCond %{REQUEST_FILENAME} !-f
+
+  # no, so we redirect to our front web controller
+  RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>

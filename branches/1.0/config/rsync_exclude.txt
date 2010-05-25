@@ -1,0 +1,7 @@
+.svn
+/cache/*
+/log/*
+/dev/*
+/web/php/cache/*
+/config/databases.yml
+/web/uploads/*

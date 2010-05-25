@@ -1,0 +1,126 @@
+wfPage:
+  home:
+    title:       ABOUT ME
+    internal_slug: homepage
+    body:        <span class="indent"></span>My name is Logan Braun, I am a video / graphics editor living in Cleveland, Ohio. I graduated from Eastern Michigan  University in 2006 with a Bachelors degree in Electronic Media and Film with a minor inGraphic Communications.<br/><br/><span class="indent"></span>Since my graduation I have worked at a corporate video production facility out of Ann Arbor, Michigan called Contemporary Media Works. While working with CMW I familiarized myself with top of line video(FCP) and graphic (Photoshop, Motion, After Effects) editing software. I was also exposed to working with high level executives at world-renowned companies (Ford, Kraft, Microsoft, ARAMARK, etc).<br/><br/><span class="indent"></span>Inspired by the work at CMW I created my own company called Braun Media Productions. The work I do at Braun Media strongly reflects thework I did with CMW. I work closely with the University of Michigan and Eastern Michigan University sports club teams, creating fully edited games, highlight videos, game retrospectives, player bios and commentaries.<br/><br/><span class="indent"></span>Thanks to my experience at Eastern Michigan University, my work with Contemporary Media, and my responsibilities managing Braun Media I have been exposed to a wide range of videographic work and have developed the skills necessary to produce professional videos in a variety of categories.<br/><br/><h1><a href="http://www.linkedin.com/in/loganbraun" ><img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.gif" width="160" height="33" border="0" alt="View Logan Braun's profile on LinkedIn"></a></h1><h1><a href="http://www.myspace.com/braunmediapro">Click here to Find me on MySpace!</a></h1>
+    sort_order:  0
+    is_homepage: 1
+  sample:
+    title:       Sample Work
+    internal_slug: sample_work
+    sort_order:  1
+    custom_module: media
+    custom_action: index
+  contact:
+    title:       Contact Information
+    internal_slug: contact
+    body:        <div class="contact_stuff"><div><a href="/uploads/custom/Logan Braun resume 8_16_08.doc"><img src="/uploads/custom/RESUME_2.22.jpg" /></a></div><div style="width: 400px;margin-top:10px;"><h1>resume</h1>(right click and choose save target as to download)  </div>  <div class="clear" style="float:none;"></div></div><div class="contact_stuff">  <div>    <a href="/uploads/custom/Logan Braun Let of Rec March08.pdf">      <img src="/uploads/custom/LETTER_OF_REC_2.22.jpg" />    </a>  </div>  <div style="width: 400px;margin-top:10px;">    <h1>letter of recommendation</h1>    (right click and choose save target as to download)  </div>  <div class="clear" style="float:none;"></div></div>
+    sort_order:  2
+    custom_module: wfContact
+    custom_action: index
+
+MediaType:
+  video:
+    title:       videos
+  graphic:
+    title:       graphics
+MediaFile:
+  52:
+    title:       Evan Picture Video
+    filename:    media/70EPV for BMP website.mov
+    preview_filename: media-preview/39Picture 83 copy.jpg
+    active:      0
+    media_type_id: video
+    sort_order:  0
+  45:
+    title:       _BMP Demo Reel 2006_
+    filename:    media/38demo reel_c.mov
+    preview_filename: media-preview/478a5e03d995a20cd828045c98bee63f.jpg
+    active:      1
+    media_type_id: video
+    sort_order:  5
+  46:
+    title:       Key West Graphic Design
+    filename:    media/14keywest.jpg
+    preview_filename: media-preview/92keywest.jpg
+    active:      1
+    media_type_id: graphic
+    sort_order:  0
+  54:
+    title:       Three Logan's working hard for you
+    filename:    media/84IMG_0144-copy-for-bmp-website.jpg
+    preview_filename: media-preview/31IMG_0144-copy1.jpg
+    active:      1
+    media_type_id: graphic
+    sort_order:  10
+  56:
+    title:       Alternative Braun Media Logo 1
+    filename:    media/11braunmedia logo.jpg
+    preview_filename: media-preview/19braunmedia-logo.jpg
+    active:      1
+    media_type_id: graphic
+    sort_order:  15
+  58:
+    title:       Alternative Contemporary Media Logo 1
+    filename:    media/76cmw logo for braun media website.jpg
+    preview_filename: media-preview/44cmw-logo-for-braun-media-website.jpg
+    active:      1
+    media_type_id: graphic
+    sort_order:  20
+  59:
+    title:       Giorio Wedding
+    filename:    media/1annes-wedding_v2_webiste.jpg
+    preview_filename: media-preview/94annes-wedding_v2_preview.jpg
+    active:      1
+    media_type_id: graphic
+    sort_order:  25
+  63:
+    title:       Corporate Video
+    filename:    media/77fx video for website-16x9-for website for 16x9.mov
+    preview_filename: media-preview/6gail and rice logo.png
+    active:      1
+    media_type_id: video
+    sort_order:  10
+  64:
+    title:       motion Bogglemania
+    filename:    media/81fx video for website-4x3-bmp website.mov
+    preview_filename: media-preview/63boggle title for website.jpg
+    active:      1
+    media_type_id: video
+    sort_order:  15
+  68:
+    title:       Graphics Sample 001
+    filename:    media/99graphics sample 001.jpg
+    preview_filename: media-preview/74graphics-sample-001_preview.jpg
+    active:      1
+    media_type_id: graphic
+    sort_order:  5
+  73:
+    title:       __BMP Demo Reel 2008__
+    filename:    media/2BMPdemo2008v3.mov
+    preview_filename: media-preview/17demodisc_DVD-menu_v1_preview.jpg
+    active:      1
+    media_type_id: video
+    sort_order:  0
+  71:
+    title:       Michigan Nationals Preview 2008
+    filename:    media/81nationals 2008-Game Highlights-for website for 16x9.mov
+    preview_filename: media-preview/28graphic for preview.jpg
+    active:      1
+    media_type_id: video
+    sort_order:  20
+  76:
+    title:       $1000 Ultimate Frisbee Video Contest
+    filename:    media/26Player bios -UV-H.264 800Kbps.mov
+    preview_filename: media-preview/57UV Black DVD.jpg
+    active:      1
+    media_type_id: video
+    sort_order:  2
+  77:
+    title:       Braun Media Sports Recording Flyer
+    filename:    media/89bmp-flyer-for-web.jpg
+    preview_filename: media-preview/65sports recording flyer.jpg
+    active:      1
+    media_type_id: graphic
+    sort_order:  0
+    

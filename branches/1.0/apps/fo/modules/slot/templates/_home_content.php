@@ -1,0 +1,1 @@
+		<div id="right_content" style="background: none;">

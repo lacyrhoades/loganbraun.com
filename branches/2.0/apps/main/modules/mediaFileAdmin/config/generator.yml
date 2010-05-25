@@ -1,0 +1,24 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      MediaFile
+    theme:            waffles
+    
+    fields:
+      filename:     { type: admin_input_file_tag, upload_dir: media, is_file: 1, params: include_remove=true }
+      preview_filename: { type: admin_input_file_tag, upload_dir: media-preview, params: include_remove=true }
+      sort_order:   { credentials: superadmin }
+      slug:         { credentials: superadmin }
+
+    
+    
+    list:
+      title:           Media Files
+      display:         [ =title, media_type, active, sort_order]
+      sortable:        true
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      filters:         [ media_type_id ]
+    
+    edit:

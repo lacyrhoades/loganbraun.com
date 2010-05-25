@@ -1,0 +1,85 @@
+sfMediaLibrary plugin
+=====================
+
+The `sfMediaLibraryPlugin` provides an easy-to-use interface to manage web
+assets (images, PDF documents, Flash objects, and so on).
+
+Installation
+------------
+
+To install the plugin for a symfony project, the usual process is to use the
+symfony command line:
+
+    $ php symfony plugin:install sfMediaLibraryPlugin
+
+As the plugin contains some assets, run the `plugin:publish-assets` task:
+
+    $ php symfony plugin:publish-assets
+
+Enable the `sfMediaLibrary` module in your application, via the `settings.yml`
+file:
+
+    [yml]
+    // in apps/APP_NAME/config/settings.yml
+    all:
+      .settings:
+      enabled_modules: [default, sfMediaLibrary]
+
+Start using the new module by making a request to:
+
+    http://myproject/frontend_dev.php/sfMediaLibrary
+
+By default, all uploaded files are stored in the `uploads/assets/` directory
+under the `web/` directory.
+
+You can customize this directory by changing the `upload_dir/` setting in
+`app.yml` (you must provide a relative path to the `web/` directory):
+
+    [yml]
+    all:
+      sf_media_library:
+        upload_dir: media
+
+In the above example, uploaded files will be in the `web/media/` directory.
+
+The `sfMediaLibrary` module
+---------------------------
+
+The module allows for the upload, renaming and deletion of all types of files
+(image, pdf, spreadsheet, etc). Click on an asset name to rename it, click on
+the trashcan icon to delete it.
+
+You can create, rename and delete subdirectories as well, resulting in a real
+tree structure that will keep your media assets organized.
+
+The module is fully i18n'ed, and the plugin comes with English, French,
+Spanish and Brazilian Portuguese translations.
+
+Uploaded assets end up under the `myproject/web/uploads/assets/` directory.
+This means that when you want to include them in a template with, for
+instance, an `image_tag()`, you must use an absolute path, as follows:
+
+    [php]
+    <?php echo image_tag('/uploads/assets/path_to_asset.suffix') ?>
+
+Interface with the `sfThumbnailPlugin`
+--------------------------------------
+
+If the sfThumbnailPlugin is installed in your project, `sfMediaLibrary` will
+automatically use it to create thumbnail images of the images you upload. To
+deactivate this behavior, change the following setting in the `app.yml`:
+
+    [yml]
+    all:
+      sf_media_library:
+        use_thumbnails: true
+        thumbnails_dir: thumbnails
+
+By default, thumbnail images are stored under a `thumbnail/` subdirectory of
+the image directory. You can change the name of this directory through another
+setting of the `app.yml`:
+
+    [yml]
+    all:
+      sf_media_library:
+        thumbnails_dir: thumbnail

@@ -1,0 +1,44 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: wfPage, action: homepage }
+
+sf_captchagd:
+  url:   /captcha/show
+  param: { module: sfCaptchaGD, action: GetImage }
+wf_contact_process:
+  url:   /contact/process
+  param: { module: wfContact, action: process }
+wf_contact_post:
+  url:   /contact/post
+  param: { module: wfContact, action: post }
+
+admin_index:
+  url:   /admin
+  param: { module: wfAdminMain, action: index }
+
+sample_work:
+  url:   /sample-work
+  param: { module: wfPage, action: index, internal_slug: sample_work }
+contact:
+  url:   /contact-information
+  param: { module: wfPage, action: index, internal_slug: contact }
+about:
+  url:   /about-me
+  param: { module: wfPage, action: index, internal_slug: homepage }
+
+wf_page_index:
+  url:   /p/:slug
+  param: { module: wfPage, action: index }
+
+
+default_symfony:
+  url:   /symfony/:action/*
+  param: { module: default }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

@@ -1,0 +1,20 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Braun Media Productions Administrative Section
+    robots:       index, follow
+    description:  symfony project
+    keywords:     symfony, project
+    language:     en
+
+  stylesheets:    [bo]
+
+  javascripts:    [ ]
+
+  has_layout:     on
+  layout:         layout
+
+  components:
+    left_nav:       [slot, left_nav]

@@ -1,0 +1,25 @@
+propel:
+  video:
+    _attributes:       { phpName: Video }
+    id:
+    name:              varchar(255)
+    description:       longvarchar
+    filename:          varchar(255)
+    preview:           varchar(255)
+    video_type_id:
+    include_on_sample: { type: boolean, default: true }
+  video_type:
+    _attributes:       { phpName: VideoType }
+    id:
+    name:              varchar(255)
+    external_link:     varchar(255)
+    external_link_name: varchar(255)
+  
+  page:
+    _attributes:       { phpName: Page }
+    id:
+    title:             varchar(255)
+    nav_title:         varchar(255)
+    body:              longvarchar
+    sort_order:        integer
+    special_handling:  varchar(255)

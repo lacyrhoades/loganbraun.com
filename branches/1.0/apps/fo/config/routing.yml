@@ -1,0 +1,17 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: main, action: index }
+custom_page:
+  url:   /:title
+  param: { module: page, action: index }
+default_symfony:
+  url:   /symfony/:action/*
+  param: { module: default }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

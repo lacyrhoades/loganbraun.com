@@ -1,0 +1,50 @@
+admin_home:
+  title:  Admin Knowledge Base
+  route:  @admin_homepage
+  links:
+    faq_edit:
+      title: Edit Knowledge Base
+      route: /wfAdminFaqAdmin/list?filter=filter
+pages:
+  title:  Pages
+  route:  /wfPageAdmin/list
+media:
+  title:  Media
+  route:  /mediaFileAdmin/list
+  links:
+    media_type:
+      title: Media Types
+      route: /mediaTypeAdmin/list
+files:
+  title:  File Manager
+  route:  /sfMediaLibrary/index
+other:
+  title:  Other
+  links:
+    content_pieces:
+      title:  Content Pieces
+      route:  /wfContentAdmin/list
+    site_constants:
+      title:  Site Constants
+      route:  /wfConstantAdmin/list
+    contact_message:
+      title:  Contact Message Log
+      route:  /wfContactAdmin/index
+change_password:
+  title:  Edit My Information
+  route:  /wfAdminMain/editInfo
+superadmin:
+  title:  Admin Areas
+  links:
+    error_logger:
+      title:   Error Logger
+      route:   sfErrorLogViewer/index
+    sf_guard_user:
+      title:   Users
+      route:   /sfGuardUser/list
+    sf_guard_group:
+      title:   Groups
+      route:   /sfGuardGroup/list
+    sf_guard_permission:
+      title:   Permissions
+      route:   /sfGuardPermission/list

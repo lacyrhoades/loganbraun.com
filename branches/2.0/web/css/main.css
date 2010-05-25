@@ -1,0 +1,58 @@
+h1 {
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 40px;
+}
+.indent {
+	margin-left: 40px;
+}
+.content {
+	line-height: 22px;
+}
+.content p {
+	margin-bottom: 20px;
+}
+div.hr {
+	font-size: 1px;
+	height: 1px;
+	border-top: 2px dashed #000;
+	margin: 20px -30px 20px -30px;
+}
+.media-type {
+	margin-bottom: 40px;
+}
+.media-type h3 {
+	font-size: 1.5em;
+	margin-bottom: 10px;
+}
+.media-type .thumbs {
+	text-align: center;
+}
+.media-type .caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 1.1em;
+	margin-bottom: 5px;
+}
+ul#admin-nav {
+	background: #efefef;
+	padding: 10px;
+	filter: alpha(opacity=90);
+	-moz-opacity: 0.9;
+	opacity: 0.9;
+	margin-top: 15px;
+}
+ul#admin-nav li {
+	margin-left: 20px;
+}
+ul#admin-nav li a {
+	color: #000;
+	text-decoration: none;
+}
+ul#admin-nav li a:hover {
+	text-decoration: underline;
+}
+#sf_admin_bar {
+	margin-left: 650px;
+	right: auto !important;
+}
