@@ -34,7 +34,7 @@
  * @package    sympal
  * @subpackage model
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: Builder.php 7200 2010-02-21 09:37:37Z beberlei $
+ * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfSympalContentList extends sfDoctrineRecord
 {
@@ -44,7 +44,7 @@ abstract class BasesfSympalContentList extends sfDoctrineRecord
         $this->hasColumn('title', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('content_type_id', 'integer', null, array(
              'type' => 'integer',
@@ -55,7 +55,7 @@ abstract class BasesfSympalContentList extends sfDoctrineRecord
              ));
         $this->hasColumn('sort_column', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('sort_order', 'enum', null, array(
              'type' => 'enum',
@@ -67,7 +67,7 @@ abstract class BasesfSympalContentList extends sfDoctrineRecord
              ));
         $this->hasColumn('table_method', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('dql_query', 'clob', null, array(
              'type' => 'clob',
@@ -82,7 +82,8 @@ abstract class BasesfSympalContentList extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $sfsympalcontenttypetemplate0 = new sfSympalContentTypeTemplate();
+        $sfsympalcontenttypetemplate0 = new sfSympalContentTypeTemplate(array(
+             ));
         $this->actAs($sfsympalcontenttypetemplate0);
     }
 }

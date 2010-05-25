@@ -22,7 +22,7 @@
  * @package    sympal
  * @subpackage model
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: Builder.php 7200 2010-02-21 09:37:37Z beberlei $
+ * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfSympalAsset extends sfDoctrineRecord
 {
@@ -32,12 +32,12 @@ abstract class BasesfSympalAsset extends sfDoctrineRecord
         $this->hasColumn('name', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('path', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
-             'length' => '255',
+             'length' => 255,
              ));
 
         $this->option('symfony', array(
@@ -58,7 +58,8 @@ abstract class BasesfSympalAsset extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'asset_id'));
 
-        $sfsympalrecordtemplate0 = new sfSympalRecordTemplate();
+        $sfsympalrecordtemplate0 = new sfSympalRecordTemplate(array(
+             ));
         $this->actAs($sfsympalrecordtemplate0);
     }
 }

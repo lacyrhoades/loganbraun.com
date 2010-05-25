@@ -8,7 +8,7 @@
  * @package    sympal
  * @subpackage form
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BasesfSympalContentTypeForm extends BaseFormDoctrine
 {
@@ -19,7 +19,6 @@ abstract class BasesfSympalContentTypeForm extends BaseFormDoctrine
       'name'         => new sfWidgetFormInputText(),
       'description'  => new sfWidgetFormTextarea(),
       'label'        => new sfWidgetFormInputText(),
-      'plugin_name'  => new sfWidgetFormInputText(),
       'default_path' => new sfWidgetFormInputText(),
       'theme'        => new sfWidgetFormInputText(),
       'template'     => new sfWidgetFormInputText(),
@@ -33,7 +32,6 @@ abstract class BasesfSympalContentTypeForm extends BaseFormDoctrine
       'name'         => new sfValidatorString(array('max_length' => 255)),
       'description'  => new sfValidatorString(array('required' => false)),
       'label'        => new sfValidatorString(array('max_length' => 255)),
-      'plugin_name'  => new sfValidatorString(array('max_length' => 255)),
       'default_path' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'theme'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'template'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),

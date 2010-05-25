@@ -28,7 +28,7 @@
  * @package    sympal
  * @subpackage model
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: Builder.php 7200 2010-02-21 09:37:37Z beberlei $
+ * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfGuardPermission extends sfDoctrineRecord
 {
@@ -38,11 +38,11 @@ abstract class BasesfGuardPermission extends sfDoctrineRecord
         $this->hasColumn('name', 'string', 255, array(
              'type' => 'string',
              'unique' => true,
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('description', 'string', 1000, array(
              'type' => 'string',
-             'length' => '1000',
+             'length' => 1000,
              ));
     }
 
@@ -67,7 +67,8 @@ abstract class BasesfGuardPermission extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'permission_id'));
 
-        $timestampable0 = new Doctrine_Template_Timestampable();
+        $timestampable0 = new Doctrine_Template_Timestampable(array(
+             ));
         $this->actAs($timestampable0);
     }
 }

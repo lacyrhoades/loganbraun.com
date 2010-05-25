@@ -8,7 +8,7 @@
  * @package    sympal
  * @subpackage form
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BasesfSympalSiteForm extends BaseFormDoctrine
 {
@@ -29,7 +29,7 @@ abstract class BasesfSympalSiteForm extends BaseFormDoctrine
       'id'               => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'theme'            => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'title'            => new sfValidatorString(array('max_length' => 255)),
-      'description'      => new sfValidatorString(),
+      'description'      => new sfValidatorString(array('required' => false)),
       'page_title'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'meta_keywords'    => new sfValidatorString(array('max_length' => 500, 'required' => false)),
       'meta_description' => new sfValidatorString(array('max_length' => 500, 'required' => false)),

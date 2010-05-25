@@ -8,30 +8,28 @@
  * @package    sympal
  * @subpackage form
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BasesfSympalContentSlotForm extends BaseFormDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'id'              => new sfWidgetFormInputHidden(),
-      'is_column'       => new sfWidgetFormInputCheckbox(),
-      'render_function' => new sfWidgetFormInputText(),
-      'name'            => new sfWidgetFormInputText(),
-      'type'            => new sfWidgetFormInputText(),
-      'value'           => new sfWidgetFormTextarea(),
-      'content_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent')),
+      'id'           => new sfWidgetFormInputHidden(),
+      'name'         => new sfWidgetFormInputText(),
+      'type'         => new sfWidgetFormInputText(),
+      'value'        => new sfWidgetFormTextarea(),
+      'is_column'    => new sfWidgetFormInputCheckbox(),
+      'content_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent')),
     ));
 
     $this->setValidators(array(
-      'id'              => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
-      'is_column'       => new sfValidatorBoolean(array('required' => false)),
-      'render_function' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'name'            => new sfValidatorString(array('max_length' => 255)),
-      'type'            => new sfValidatorString(array('max_length' => 255)),
-      'value'           => new sfValidatorString(array('required' => false)),
-      'content_list'    => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent', 'required' => false)),
+      'id'           => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'name'         => new sfValidatorString(array('max_length' => 255)),
+      'type'         => new sfValidatorString(array('max_length' => 255)),
+      'value'        => new sfValidatorString(array('required' => false)),
+      'is_column'    => new sfValidatorBoolean(array('required' => false)),
+      'content_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('sf_sympal_content_slot[%s]');

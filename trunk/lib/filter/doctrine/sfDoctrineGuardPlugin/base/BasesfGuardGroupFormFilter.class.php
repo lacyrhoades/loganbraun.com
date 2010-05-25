@@ -6,7 +6,7 @@
  * @package    sympal
  * @subpackage filter
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
 {
@@ -19,9 +19,9 @@ abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
       'updated_at'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'users_list'        => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser')),
       'permissions_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardPermission')),
-      'menu_items_list'   => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalMenuItem')),
       'content_list'      => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent')),
       'edit_content_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent')),
+      'menu_items_list'   => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalMenuItem')),
     ));
 
     $this->setValidators(array(
@@ -31,9 +31,9 @@ abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
       'updated_at'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'users_list'        => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser', 'required' => false)),
       'permissions_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardPermission', 'required' => false)),
-      'menu_items_list'   => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalMenuItem', 'required' => false)),
       'content_list'      => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent', 'required' => false)),
       'edit_content_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent', 'required' => false)),
+      'menu_items_list'   => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalMenuItem', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('sf_guard_group_filters[%s]');
@@ -57,8 +57,10 @@ abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query->leftJoin('r.sfGuardUserGroup sfGuardUserGroup')
-          ->andWhereIn('sfGuardUserGroup.user_id', $values);
+    $query
+      ->leftJoin($query->getRootAlias().'.sfGuardUserGroup sfGuardUserGroup')
+      ->andWhereIn('sfGuardUserGroup.user_id', $values)
+    ;
   }
 
   public function addPermissionsListColumnQuery(Doctrine_Query $query, $field, $values)
@@ -73,24 +75,10 @@ abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query->leftJoin('r.sfGuardGroupPermission sfGuardGroupPermission')
-          ->andWhereIn('sfGuardGroupPermission.permission_id', $values);
-  }
-
-  public function addMenuItemsListColumnQuery(Doctrine_Query $query, $field, $values)
-  {
-    if (!is_array($values))
-    {
-      $values = array($values);
-    }
-
-    if (!count($values))
-    {
-      return;
-    }
-
-    $query->leftJoin('r.sfSympalMenuItemGroup sfSympalMenuItemGroup')
-          ->andWhereIn('sfSympalMenuItemGroup.menu_item_id', $values);
+    $query
+      ->leftJoin($query->getRootAlias().'.sfGuardGroupPermission sfGuardGroupPermission')
+      ->andWhereIn('sfGuardGroupPermission.permission_id', $values)
+    ;
   }
 
   public function addContentListColumnQuery(Doctrine_Query $query, $field, $values)
@@ -105,8 +93,10 @@ abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query->leftJoin('r.sfSympalContentGroup sfSympalContentGroup')
-          ->andWhereIn('sfSympalContentGroup.content_id', $values);
+    $query
+      ->leftJoin($query->getRootAlias().'.sfSympalContentGroup sfSympalContentGroup')
+      ->andWhereIn('sfSympalContentGroup.content_id', $values)
+    ;
   }
 
   public function addEditContentListColumnQuery(Doctrine_Query $query, $field, $values)
@@ -121,8 +111,28 @@ abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query->leftJoin('r.sfSympalContentEditGroup sfSympalContentEditGroup')
-          ->andWhereIn('sfSympalContentEditGroup.content_id', $values);
+    $query
+      ->leftJoin($query->getRootAlias().'.sfSympalContentEditGroup sfSympalContentEditGroup')
+      ->andWhereIn('sfSympalContentEditGroup.content_id', $values)
+    ;
+  }
+
+  public function addMenuItemsListColumnQuery(Doctrine_Query $query, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $query
+      ->leftJoin($query->getRootAlias().'.sfSympalMenuItemGroup sfSympalMenuItemGroup')
+      ->andWhereIn('sfSympalMenuItemGroup.menu_item_id', $values)
+    ;
   }
 
   public function getModelName()
@@ -140,9 +150,9 @@ abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
       'updated_at'        => 'Date',
       'users_list'        => 'ManyKey',
       'permissions_list'  => 'ManyKey',
-      'menu_items_list'   => 'ManyKey',
       'content_list'      => 'ManyKey',
       'edit_content_list' => 'ManyKey',
+      'menu_items_list'   => 'ManyKey',
     );
   }
 }

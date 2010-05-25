@@ -6,7 +6,7 @@
  * @package    sympal
  * @subpackage filter
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BasesfSympalContentTypeFormFilter extends BaseFormFilterDoctrine
 {
@@ -16,7 +16,6 @@ abstract class BasesfSympalContentTypeFormFilter extends BaseFormFilterDoctrine
       'name'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'description'  => new sfWidgetFormFilterInput(),
       'label'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'plugin_name'  => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'default_path' => new sfWidgetFormFilterInput(),
       'theme'        => new sfWidgetFormFilterInput(),
       'template'     => new sfWidgetFormFilterInput(),
@@ -29,7 +28,6 @@ abstract class BasesfSympalContentTypeFormFilter extends BaseFormFilterDoctrine
       'name'         => new sfValidatorPass(array('required' => false)),
       'description'  => new sfValidatorPass(array('required' => false)),
       'label'        => new sfValidatorPass(array('required' => false)),
-      'plugin_name'  => new sfValidatorPass(array('required' => false)),
       'default_path' => new sfValidatorPass(array('required' => false)),
       'theme'        => new sfValidatorPass(array('required' => false)),
       'template'     => new sfValidatorPass(array('required' => false)),
@@ -59,7 +57,6 @@ abstract class BasesfSympalContentTypeFormFilter extends BaseFormFilterDoctrine
       'name'         => 'Text',
       'description'  => 'Text',
       'label'        => 'Text',
-      'plugin_name'  => 'Text',
       'default_path' => 'Text',
       'theme'        => 'Text',
       'template'     => 'Text',

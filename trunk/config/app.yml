@@ -1,18 +1,22 @@
 all:
   sympal_config:
-    default_theme: lb30
     installed: true
-    current_version: 1.0.0-ALPHA3
-    themes:
-      lb30: { layout: lb30_theme, stylesheets: [/sfSympalLb30ThemePlugin/css/lb30_theme.css, /sfSympalLb30ThemePlugin/css/960.css] }
+    current_version: 1.0.0-ALPHA5
     sfSympalLb30ThemePlugin:
       installed: true
-    page:
+  content_types:
+    sfSympalPage:
       content_templates:
-        'simple_view (wf)':
+        default_view:
           template: sympal_page/simple_view
-        'text image image (wf)':
+        text_image_image:
           template: sympal_page/text_image_image
+  theme:
+    controller_options:
+      default_theme: lb30
+    themes:
+      lb30: { layout: lb30_theme, stylesheets: [/sfSympalLb30ThemePlugin/css/lb30_theme.css, /sfSympalLb30ThemePlugin/css/960.css] }
+
 dev:
   sympal_config:
     minifier:

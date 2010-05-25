@@ -13,7 +13,7 @@
  * @package    sympal
  * @subpackage model
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: Builder.php 7200 2010-02-21 09:37:37Z beberlei $
+ * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfSympalPage extends sfDoctrineRecord
 {
@@ -23,14 +23,15 @@ abstract class BasesfSympalPage extends sfDoctrineRecord
         $this->hasColumn('title', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
-             'length' => '255',
+             'length' => 255,
              ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $sfsympalcontenttypetemplate0 = new sfSympalContentTypeTemplate();
+        $sfsympalcontenttypetemplate0 = new sfSympalContentTypeTemplate(array(
+             ));
         $this->actAs($sfsympalcontenttypetemplate0);
     }
 }

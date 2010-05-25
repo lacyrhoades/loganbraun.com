@@ -28,14 +28,14 @@
  * @property Doctrine_Collection $EditGroups
  * @property Doctrine_Collection $Slots
  * @property Doctrine_Collection $Links
- * @property Doctrine_Collection $Assets
- * @property Doctrine_Collection $sfSympalContentAssets
- * @property sfSympalMenuItem $MenuItem
  * @property Doctrine_Collection $Redirects
  * @property Doctrine_Collection $sfSympalContentLinks
  * @property Doctrine_Collection $ContentSlotRefs
  * @property Doctrine_Collection $ContentGroups
  * @property Doctrine_Collection $ContentEditGroups
+ * @property sfSympalMenuItem $MenuItem
+ * @property Doctrine_Collection $Assets
+ * @property Doctrine_Collection $sfSympalContentAssets
  * 
  * @method integer             getSiteId()                Returns the current record's "site_id" value
  * @method integer             getContentTypeId()         Returns the current record's "content_type_id" value
@@ -60,14 +60,14 @@
  * @method Doctrine_Collection getEditGroups()            Returns the current record's "EditGroups" collection
  * @method Doctrine_Collection getSlots()                 Returns the current record's "Slots" collection
  * @method Doctrine_Collection getLinks()                 Returns the current record's "Links" collection
- * @method Doctrine_Collection getAssets()                Returns the current record's "Assets" collection
- * @method Doctrine_Collection getSfSympalContentAssets() Returns the current record's "sfSympalContentAssets" collection
- * @method sfSympalMenuItem    getMenuItem()              Returns the current record's "MenuItem" value
  * @method Doctrine_Collection getRedirects()             Returns the current record's "Redirects" collection
  * @method Doctrine_Collection getSfSympalContentLinks()  Returns the current record's "sfSympalContentLinks" collection
  * @method Doctrine_Collection getContentSlotRefs()       Returns the current record's "ContentSlotRefs" collection
  * @method Doctrine_Collection getContentGroups()         Returns the current record's "ContentGroups" collection
  * @method Doctrine_Collection getContentEditGroups()     Returns the current record's "ContentEditGroups" collection
+ * @method sfSympalMenuItem    getMenuItem()              Returns the current record's "MenuItem" value
+ * @method Doctrine_Collection getAssets()                Returns the current record's "Assets" collection
+ * @method Doctrine_Collection getSfSympalContentAssets() Returns the current record's "sfSympalContentAssets" collection
  * @method sfSympalContent     setSiteId()                Sets the current record's "site_id" value
  * @method sfSympalContent     setContentTypeId()         Sets the current record's "content_type_id" value
  * @method sfSympalContent     setLastUpdatedById()       Sets the current record's "last_updated_by_id" value
@@ -91,19 +91,19 @@
  * @method sfSympalContent     setEditGroups()            Sets the current record's "EditGroups" collection
  * @method sfSympalContent     setSlots()                 Sets the current record's "Slots" collection
  * @method sfSympalContent     setLinks()                 Sets the current record's "Links" collection
- * @method sfSympalContent     setAssets()                Sets the current record's "Assets" collection
- * @method sfSympalContent     setSfSympalContentAssets() Sets the current record's "sfSympalContentAssets" collection
- * @method sfSympalContent     setMenuItem()              Sets the current record's "MenuItem" value
  * @method sfSympalContent     setRedirects()             Sets the current record's "Redirects" collection
  * @method sfSympalContent     setSfSympalContentLinks()  Sets the current record's "sfSympalContentLinks" collection
  * @method sfSympalContent     setContentSlotRefs()       Sets the current record's "ContentSlotRefs" collection
  * @method sfSympalContent     setContentGroups()         Sets the current record's "ContentGroups" collection
  * @method sfSympalContent     setContentEditGroups()     Sets the current record's "ContentEditGroups" collection
+ * @method sfSympalContent     setMenuItem()              Sets the current record's "MenuItem" value
+ * @method sfSympalContent     setAssets()                Sets the current record's "Assets" collection
+ * @method sfSympalContent     setSfSympalContentAssets() Sets the current record's "sfSympalContentAssets" collection
  * 
  * @package    sympal
  * @subpackage model
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: Builder.php 7200 2010-02-21 09:37:37Z beberlei $
+ * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfSympalContent extends sfDoctrineRecord
 {
@@ -129,23 +129,23 @@ abstract class BasesfSympalContent extends sfDoctrineRecord
              ));
         $this->hasColumn('custom_path', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('theme', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('template', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('module', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('action', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('publicly_editable', 'boolean', null, array(
              'type' => 'boolean',
@@ -153,19 +153,19 @@ abstract class BasesfSympalContent extends sfDoctrineRecord
              ));
         $this->hasColumn('page_title', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('meta_keywords', 'string', 500, array(
              'type' => 'string',
-             'length' => '500',
+             'length' => 500,
              ));
         $this->hasColumn('meta_description', 'string', 500, array(
              'type' => 'string',
-             'length' => '500',
+             'length' => 500,
              ));
         $this->hasColumn('i18n_slug', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
 
 
@@ -220,19 +220,6 @@ abstract class BasesfSympalContent extends sfDoctrineRecord
              'local' => 'content_id',
              'foreign' => 'linked_content_id'));
 
-        $this->hasMany('sfSympalAsset as Assets', array(
-             'refClass' => 'sfSympalContentAsset',
-             'local' => 'content_id',
-             'foreign' => 'asset_id'));
-
-        $this->hasMany('sfSympalContentAsset as sfSympalContentAssets', array(
-             'local' => 'id',
-             'foreign' => 'content_id'));
-
-        $this->hasOne('sfSympalMenuItem as MenuItem', array(
-             'local' => 'id',
-             'foreign' => 'content_id'));
-
         $this->hasMany('sfSympalRedirect as Redirects', array(
              'local' => 'id',
              'foreign' => 'content_id'));
@@ -253,9 +240,30 @@ abstract class BasesfSympalContent extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'content_id'));
 
+        $this->hasOne('sfSympalMenuItem as MenuItem', array(
+             'local' => 'id',
+             'foreign' => 'content_id'));
+
+        $this->hasMany('sfSympalAsset as Assets', array(
+             'refClass' => 'sfSympalContentAsset',
+             'local' => 'content_id',
+             'foreign' => 'asset_id'));
+
+        $this->hasMany('sfSympalContentAsset as sfSympalContentAssets', array(
+             'local' => 'id',
+             'foreign' => 'content_id'));
+
         $timestampable0 = new Doctrine_Template_Timestampable();
         $sfsympalrecordtemplate0 = new sfSympalRecordTemplate();
+        $sfinlineobjectcontainertemplate0 = new sfInlineObjectContainerTemplate(array(
+             'relations' => 
+             array(
+              0 => 'Assets',
+              1 => 'Links',
+             ),
+             ));
         $this->actAs($timestampable0);
         $this->actAs($sfsympalrecordtemplate0);
+        $this->actAs($sfinlineobjectcontainertemplate0);
     }
 }

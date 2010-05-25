@@ -6,7 +6,7 @@
  * @package    sympal
  * @subpackage filter
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BasesfSympalContentFormFilter extends BaseFormFilterDoctrine
 {
@@ -85,8 +85,10 @@ abstract class BasesfSympalContentFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query->leftJoin('r.sfSympalContentGroup sfSympalContentGroup')
-          ->andWhereIn('sfSympalContentGroup.group_id', $values);
+    $query
+      ->leftJoin($query->getRootAlias().'.sfSympalContentGroup sfSympalContentGroup')
+      ->andWhereIn('sfSympalContentGroup.group_id', $values)
+    ;
   }
 
   public function addEditGroupsListColumnQuery(Doctrine_Query $query, $field, $values)
@@ -101,8 +103,10 @@ abstract class BasesfSympalContentFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query->leftJoin('r.sfSympalContentEditGroup sfSympalContentEditGroup')
-          ->andWhereIn('sfSympalContentEditGroup.group_id', $values);
+    $query
+      ->leftJoin($query->getRootAlias().'.sfSympalContentEditGroup sfSympalContentEditGroup')
+      ->andWhereIn('sfSympalContentEditGroup.group_id', $values)
+    ;
   }
 
   public function addSlotsListColumnQuery(Doctrine_Query $query, $field, $values)
@@ -117,8 +121,10 @@ abstract class BasesfSympalContentFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query->leftJoin('r.sfSympalContentSlotRef sfSympalContentSlotRef')
-          ->andWhereIn('sfSympalContentSlotRef.content_slot_id', $values);
+    $query
+      ->leftJoin($query->getRootAlias().'.sfSympalContentSlotRef sfSympalContentSlotRef')
+      ->andWhereIn('sfSympalContentSlotRef.content_slot_id', $values)
+    ;
   }
 
   public function addLinksListColumnQuery(Doctrine_Query $query, $field, $values)
@@ -133,8 +139,10 @@ abstract class BasesfSympalContentFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query->leftJoin('r.sfSympalContentLink sfSympalContentLink')
-          ->andWhereIn('sfSympalContentLink.linked_content_id', $values);
+    $query
+      ->leftJoin($query->getRootAlias().'.sfSympalContentLink sfSympalContentLink')
+      ->andWhereIn('sfSympalContentLink.linked_content_id', $values)
+    ;
   }
 
   public function addAssetsListColumnQuery(Doctrine_Query $query, $field, $values)
@@ -149,8 +157,10 @@ abstract class BasesfSympalContentFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query->leftJoin('r.sfSympalContentAsset sfSympalContentAsset')
-          ->andWhereIn('sfSympalContentAsset.asset_id', $values);
+    $query
+      ->leftJoin($query->getRootAlias().'.sfSympalContentAsset sfSympalContentAsset')
+      ->andWhereIn('sfSympalContentAsset.asset_id', $values)
+    ;
   }
 
   public function getModelName()

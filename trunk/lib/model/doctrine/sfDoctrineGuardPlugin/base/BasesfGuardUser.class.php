@@ -17,12 +17,12 @@
  * @property timestamp $last_login
  * @property Doctrine_Collection $Groups
  * @property Doctrine_Collection $Permissions
+ * @property Doctrine_Collection $LastUpdatedContent
+ * @property Doctrine_Collection $CreatedContent
  * @property Doctrine_Collection $sfGuardUserPermission
  * @property Doctrine_Collection $sfGuardUserGroup
  * @property sfGuardRememberKey $RememberKeys
  * @property sfGuardForgotPassword $ForgotPassword
- * @property Doctrine_Collection $LastUpdatedContent
- * @property Doctrine_Collection $CreatedContent
  * 
  * @method string                getFirstName()             Returns the current record's "first_name" value
  * @method string                getLastName()              Returns the current record's "last_name" value
@@ -36,12 +36,12 @@
  * @method timestamp             getLastLogin()             Returns the current record's "last_login" value
  * @method Doctrine_Collection   getGroups()                Returns the current record's "Groups" collection
  * @method Doctrine_Collection   getPermissions()           Returns the current record's "Permissions" collection
+ * @method Doctrine_Collection   getLastUpdatedContent()    Returns the current record's "LastUpdatedContent" collection
+ * @method Doctrine_Collection   getCreatedContent()        Returns the current record's "CreatedContent" collection
  * @method Doctrine_Collection   getSfGuardUserPermission() Returns the current record's "sfGuardUserPermission" collection
  * @method Doctrine_Collection   getSfGuardUserGroup()      Returns the current record's "sfGuardUserGroup" collection
  * @method sfGuardRememberKey    getRememberKeys()          Returns the current record's "RememberKeys" value
  * @method sfGuardForgotPassword getForgotPassword()        Returns the current record's "ForgotPassword" value
- * @method Doctrine_Collection   getLastUpdatedContent()    Returns the current record's "LastUpdatedContent" collection
- * @method Doctrine_Collection   getCreatedContent()        Returns the current record's "CreatedContent" collection
  * @method sfGuardUser           setFirstName()             Sets the current record's "first_name" value
  * @method sfGuardUser           setLastName()              Sets the current record's "last_name" value
  * @method sfGuardUser           setEmailAddress()          Sets the current record's "email_address" value
@@ -54,17 +54,17 @@
  * @method sfGuardUser           setLastLogin()             Sets the current record's "last_login" value
  * @method sfGuardUser           setGroups()                Sets the current record's "Groups" collection
  * @method sfGuardUser           setPermissions()           Sets the current record's "Permissions" collection
+ * @method sfGuardUser           setLastUpdatedContent()    Sets the current record's "LastUpdatedContent" collection
+ * @method sfGuardUser           setCreatedContent()        Sets the current record's "CreatedContent" collection
  * @method sfGuardUser           setSfGuardUserPermission() Sets the current record's "sfGuardUserPermission" collection
  * @method sfGuardUser           setSfGuardUserGroup()      Sets the current record's "sfGuardUserGroup" collection
  * @method sfGuardUser           setRememberKeys()          Sets the current record's "RememberKeys" value
  * @method sfGuardUser           setForgotPassword()        Sets the current record's "ForgotPassword" value
- * @method sfGuardUser           setLastUpdatedContent()    Sets the current record's "LastUpdatedContent" collection
- * @method sfGuardUser           setCreatedContent()        Sets the current record's "CreatedContent" collection
  * 
  * @package    sympal
  * @subpackage model
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: Builder.php 7200 2010-02-21 09:37:37Z beberlei $
+ * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfGuardUser extends sfDoctrineRecord
 {
@@ -73,37 +73,37 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
         $this->setTableName('sf_guard_user');
         $this->hasColumn('first_name', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('last_name', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('email_address', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
              'unique' => true,
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('username', 'string', 128, array(
              'type' => 'string',
              'notnull' => true,
              'unique' => true,
-             'length' => '128',
+             'length' => 128,
              ));
         $this->hasColumn('algorithm', 'string', 128, array(
              'type' => 'string',
              'default' => 'sha1',
              'notnull' => true,
-             'length' => '128',
+             'length' => 128,
              ));
         $this->hasColumn('salt', 'string', 128, array(
              'type' => 'string',
-             'length' => '128',
+             'length' => 128,
              ));
         $this->hasColumn('password', 'string', 128, array(
              'type' => 'string',
-             'length' => '128',
+             'length' => 128,
              ));
         $this->hasColumn('is_active', 'boolean', null, array(
              'type' => 'boolean',
@@ -139,6 +139,14 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              'local' => 'user_id',
              'foreign' => 'permission_id'));
 
+        $this->hasMany('sfSympalContent as LastUpdatedContent', array(
+             'local' => 'id',
+             'foreign' => 'last_updated_by_id'));
+
+        $this->hasMany('sfSympalContent as CreatedContent', array(
+             'local' => 'id',
+             'foreign' => 'created_by_id'));
+
         $this->hasMany('sfGuardUserPermission', array(
              'local' => 'id',
              'foreign' => 'user_id'));
@@ -155,15 +163,8 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'user_id'));
 
-        $this->hasMany('sfSympalContent as LastUpdatedContent', array(
-             'local' => 'id',
-             'foreign' => 'last_updated_by_id'));
-
-        $this->hasMany('sfSympalContent as CreatedContent', array(
-             'local' => 'id',
-             'foreign' => 'created_by_id'));
-
-        $timestampable0 = new Doctrine_Template_Timestampable();
+        $timestampable0 = new Doctrine_Template_Timestampable(array(
+             ));
         $this->actAs($timestampable0);
     }
 }

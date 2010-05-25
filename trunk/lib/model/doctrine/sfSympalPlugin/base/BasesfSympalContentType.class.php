@@ -8,42 +8,39 @@
  * @property string $name
  * @property clob $description
  * @property string $label
- * @property string $plugin_name
  * @property string $default_path
  * @property string $theme
  * @property string $template
  * @property string $module
  * @property string $action
- * @property Doctrine_Collection $Lists
  * @property Doctrine_Collection $Content
+ * @property Doctrine_Collection $Lists
  * 
  * @method string              getName()         Returns the current record's "name" value
  * @method clob                getDescription()  Returns the current record's "description" value
  * @method string              getLabel()        Returns the current record's "label" value
- * @method string              getPluginName()   Returns the current record's "plugin_name" value
  * @method string              getDefaultPath()  Returns the current record's "default_path" value
  * @method string              getTheme()        Returns the current record's "theme" value
  * @method string              getTemplate()     Returns the current record's "template" value
  * @method string              getModule()       Returns the current record's "module" value
  * @method string              getAction()       Returns the current record's "action" value
- * @method Doctrine_Collection getLists()        Returns the current record's "Lists" collection
  * @method Doctrine_Collection getContent()      Returns the current record's "Content" collection
+ * @method Doctrine_Collection getLists()        Returns the current record's "Lists" collection
  * @method sfSympalContentType setName()         Sets the current record's "name" value
  * @method sfSympalContentType setDescription()  Sets the current record's "description" value
  * @method sfSympalContentType setLabel()        Sets the current record's "label" value
- * @method sfSympalContentType setPluginName()   Sets the current record's "plugin_name" value
  * @method sfSympalContentType setDefaultPath()  Sets the current record's "default_path" value
  * @method sfSympalContentType setTheme()        Sets the current record's "theme" value
  * @method sfSympalContentType setTemplate()     Sets the current record's "template" value
  * @method sfSympalContentType setModule()       Sets the current record's "module" value
  * @method sfSympalContentType setAction()       Sets the current record's "action" value
- * @method sfSympalContentType setLists()        Sets the current record's "Lists" collection
  * @method sfSympalContentType setContent()      Sets the current record's "Content" collection
+ * @method sfSympalContentType setLists()        Sets the current record's "Lists" collection
  * 
  * @package    sympal
  * @subpackage model
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: Builder.php 7200 2010-02-21 09:37:37Z beberlei $
+ * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfSympalContentType extends sfDoctrineRecord
 {
@@ -53,7 +50,7 @@ abstract class BasesfSympalContentType extends sfDoctrineRecord
         $this->hasColumn('name', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('description', 'clob', null, array(
              'type' => 'clob',
@@ -61,32 +58,27 @@ abstract class BasesfSympalContentType extends sfDoctrineRecord
         $this->hasColumn('label', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
-             'length' => '255',
-             ));
-        $this->hasColumn('plugin_name', 'string', 255, array(
-             'type' => 'string',
-             'notnull' => true,
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('default_path', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('theme', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('template', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('module', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
         $this->hasColumn('action', 'string', 255, array(
              'type' => 'string',
-             'length' => '255',
+             'length' => 255,
              ));
 
 
@@ -101,15 +93,16 @@ abstract class BasesfSympalContentType extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('sfSympalContentList as Lists', array(
-             'local' => 'id',
-             'foreign' => 'content_type_id'));
-
         $this->hasMany('sfSympalContent as Content', array(
              'local' => 'id',
              'foreign' => 'content_type_id'));
 
-        $sfsympalrecordtemplate0 = new sfSympalRecordTemplate();
+        $this->hasMany('sfSympalContentList as Lists', array(
+             'local' => 'id',
+             'foreign' => 'content_type_id'));
+
+        $sfsympalrecordtemplate0 = new sfSympalRecordTemplate(array(
+             ));
         $this->actAs($sfsympalrecordtemplate0);
     }
 }

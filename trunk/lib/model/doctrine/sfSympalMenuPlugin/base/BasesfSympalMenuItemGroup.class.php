@@ -22,7 +22,7 @@
  * @package    sympal
  * @subpackage model
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: Builder.php 7200 2010-02-21 09:37:37Z beberlei $
+ * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfSympalMenuItemGroup extends sfDoctrineRecord
 {
@@ -52,7 +52,8 @@ abstract class BasesfSympalMenuItemGroup extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $sfsympalrecordtemplate0 = new sfSympalRecordTemplate();
+        $sfsympalrecordtemplate0 = new sfSympalRecordTemplate(array(
+             ));
         $this->actAs($sfsympalrecordtemplate0);
     }
 }

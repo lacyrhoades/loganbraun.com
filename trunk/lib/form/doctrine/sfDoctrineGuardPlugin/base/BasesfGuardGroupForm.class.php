@@ -8,7 +8,7 @@
  * @package    sympal
  * @subpackage form
  * @author     lacyrhoades@gmail.com
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BasesfGuardGroupForm extends BaseFormDoctrine
 {
@@ -22,9 +22,9 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
       'updated_at'        => new sfWidgetFormDateTime(),
       'users_list'        => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser')),
       'permissions_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardPermission')),
-      'menu_items_list'   => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalMenuItem')),
       'content_list'      => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent')),
       'edit_content_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent')),
+      'menu_items_list'   => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalMenuItem')),
     ));
 
     $this->setValidators(array(
@@ -35,9 +35,9 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
       'updated_at'        => new sfValidatorDateTime(),
       'users_list'        => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser', 'required' => false)),
       'permissions_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardPermission', 'required' => false)),
-      'menu_items_list'   => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalMenuItem', 'required' => false)),
       'content_list'      => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent', 'required' => false)),
       'edit_content_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalContent', 'required' => false)),
+      'menu_items_list'   => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfSympalMenuItem', 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
@@ -72,11 +72,6 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
       $this->setDefault('permissions_list', $this->object->Permissions->getPrimaryKeys());
     }
 
-    if (isset($this->widgetSchema['menu_items_list']))
-    {
-      $this->setDefault('menu_items_list', $this->object->MenuItems->getPrimaryKeys());
-    }
-
     if (isset($this->widgetSchema['content_list']))
     {
       $this->setDefault('content_list', $this->object->Content->getPrimaryKeys());
@@ -87,15 +82,20 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
       $this->setDefault('edit_content_list', $this->object->EditContent->getPrimaryKeys());
     }
 
+    if (isset($this->widgetSchema['menu_items_list']))
+    {
+      $this->setDefault('menu_items_list', $this->object->MenuItems->getPrimaryKeys());
+    }
+
   }
 
   protected function doSave($con = null)
   {
     $this->saveUsersList($con);
     $this->savePermissionsList($con);
-    $this->saveMenuItemsList($con);
     $this->saveContentList($con);
     $this->saveEditContentList($con);
+    $this->saveMenuItemsList($con);
 
     parent::doSave($con);
   }
@@ -176,44 +176,6 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
     }
   }
 
-  public function saveMenuItemsList($con = null)
-  {
-    if (!$this->isValid())
-    {
-      throw $this->getErrorSchema();
-    }
-
-    if (!isset($this->widgetSchema['menu_items_list']))
-    {
-      // somebody has unset this widget
-      return;
-    }
-
-    if (null === $con)
-    {
-      $con = $this->getConnection();
-    }
-
-    $existing = $this->object->MenuItems->getPrimaryKeys();
-    $values = $this->getValue('menu_items_list');
-    if (!is_array($values))
-    {
-      $values = array();
-    }
-
-    $unlink = array_diff($existing, $values);
-    if (count($unlink))
-    {
-      $this->object->unlink('MenuItems', array_values($unlink));
-    }
-
-    $link = array_diff($values, $existing);
-    if (count($link))
-    {
-      $this->object->link('MenuItems', array_values($link));
-    }
-  }
-
   public function saveContentList($con = null)
   {
     if (!$this->isValid())
@@ -287,6 +249,44 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
     if (count($link))
     {
       $this->object->link('EditContent', array_values($link));
+    }
+  }
+
+  public function saveMenuItemsList($con = null)
+  {
+    if (!$this->isValid())
+    {
+      throw $this->getErrorSchema();
+    }
+
+    if (!isset($this->widgetSchema['menu_items_list']))
+    {
+      // somebody has unset this widget
+      return;
+    }
+
+    if (null === $con)
+    {
+      $con = $this->getConnection();
+    }
+
+    $existing = $this->object->MenuItems->getPrimaryKeys();
+    $values = $this->getValue('menu_items_list');
+    if (!is_array($values))
+    {
+      $values = array();
+    }
+
+    $unlink = array_diff($existing, $values);
+    if (count($unlink))
+    {
+      $this->object->unlink('MenuItems', array_values($unlink));
+    }
+
+    $link = array_diff($values, $existing);
+    if (count($link))
+    {
+      $this->object->link('MenuItems', array_values($link));
     }
   }
 
