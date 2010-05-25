@@ -1,0 +1,10 @@
+prod:
+  sympal_config:
+    minifier:
+      enabled:   true
+
+all:
+  sympal_config:
+    minifier:
+      enabled:    false
+      exclude:    [jquery.js, tiny_mce.js]

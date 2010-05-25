@@ -1,0 +1,7 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql://root:root@localhost/lbdc'
+      username: root
+      password: root

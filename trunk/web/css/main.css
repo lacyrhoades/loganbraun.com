@@ -1,0 +1,27 @@
+div.right_floater
+{
+  float: right;
+}
+div#home_text_wrap
+{
+  width: 300px;
+}
+div#lb30_content h1
+{
+  font-size: 22px;
+  height: 12px;
+  margin: 10px 0px 0px 0px;
+}
+span.home_content
+{
+  margin: 0px 0px 0px 0px;
+}
+span.home_content p
+{
+  text-indent: 10px;
+  font-size: 14px;
+}
+div.floater_omega
+{
+  margin-left: 20px;
+}

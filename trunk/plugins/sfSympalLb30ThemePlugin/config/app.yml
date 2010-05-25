@@ -1,0 +1,7 @@
+all:
+  sympal_config:
+    themes:
+      lb30_theme:
+        layout: lb30_theme
+        stylesheets:
+          - /sfSympalLb30ThemePlugin/css/lb30_theme.css
