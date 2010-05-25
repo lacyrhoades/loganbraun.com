@@ -1,0 +1,3 @@
+[submodule "trunk/plugins/sfSypalPlugin"]
+	path = trunk/plugins/sfSypalPlugin
+	url = http://github.com/sympal/sympal.git
