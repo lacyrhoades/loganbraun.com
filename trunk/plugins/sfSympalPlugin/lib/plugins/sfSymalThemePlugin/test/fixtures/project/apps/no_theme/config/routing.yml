@@ -1,3 +1,0 @@
-homepage:
-  url:   /
-  param: { module: test, action: index }

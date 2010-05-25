@@ -1,6 +1,0 @@
-all:
-  sympal_config:
-    themes:
-      test:
-        available: true
-        disabled:  false

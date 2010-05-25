@@ -1,9 +1,0 @@
-all:
-  theme:
-    themes:
-      test_theme:
-        available: true
-        disabled:  false
-        layout:    plugin_test_layout
-        javascripts:
-          - /sfSympalThemeTestPlugin/js/testing.js
